@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Test.MainPage"
+             x:Name="mainPage">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowDefinitions="*, auto">
+        <ScrollView>
+            <Grid RowDefinitions="auto, 0.2*, 0.8*" RowSpacing="10" BackgroundColor="LightGray">
+                <VerticalStackLayout Grid.Row="0" Spacing="5" BackgroundColor="White" Padding="15" >
+                    <Label Text="내주소" FontSize="13" FontAttributes="Bold" TextColor="Black"/>
+                    <Label Text="서울 강남구 강남대로" TextColor="Black"/>
+                    <Label Text="396 강남역 지하 1층" TextColor="Black"/>
+                    <Label Text="반려동물" FontSize="13" FontAttributes="Bold" Margin="0, 30, 0, 0" TextColor="Black"/>
+                    <Label Text="없음" TextColor="Black"/>
+                </VerticalStackLayout>
+                <Grid RowDefinitions="0.33*, 0.33*, 0.33*" ColumnDefinitions="*, auto" Grid.Row="1" BackgroundColor="White"
+                      Padding="15" RowSpacing="5">
+                    <Label Text="결제 정보" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" TextColor="Black"
+                           FontSize="13" FontAttributes="Bold" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="End"/>
+                    <Label Text="결제 예정 금액" Grid.Row="1" Grid.Column="0" TextColor="Black"
+                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                    <Label Text="결제는 서비스가 완료된 후 진행됩니다." FontSize="12"
+                           Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" TextColor="LightGray"
+                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                    <Label Text="31,200원" Grid.Row="1" Grid.Column="1" TextColor="Black"
+                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                </Grid>
+                <VerticalStackLayout Grid.Row="2" BackgroundColor="White" Padding="15"
+                                     Spacing="5">
+                    <HorizontalStackLayout Margin="0, 20, 0, 0">
+                        <Grid WidthRequest="10" HeightRequest="10" Margin="0, 0, 10, 0"
+                               BackgroundColor="#005bef" Padding="0"/>
+                        <Label Text="청소 도구를 꼭 준비해주세요." FontSize="13"/>
+                    </HorizontalStackLayout>
+                    <FlexLayout BindableLayout.ItemsSource="{Binding ToolList, Source={x:Reference mainPage}}"
+                                JustifyContent="SpaceBetween" Margin="0, 5, 0, 0"
+                                Wrap="Wrap" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0, 0, 0, 5" FlexLayout.AlignSelf="Center"
+                                      RowDefinitions="0.8*, auto" HeightRequest="85"
+                                      FlexLayout.Basis="25%" HorizontalOptions="FillAndExpand"
+                                      VerticalOptions="FillAndExpand">
+                                    <Frame CornerRadius="3" HasShadow="False" Padding="0"
+                                           BackgroundColor="LightGray" Grid.Row="0" Margin="5, 0, 5, 0">
+
+                                    </Frame>
+                                    <Label Text="{Binding}" Grid.Row="1" HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>
+                    <HorizontalStackLayout Margin="0, 20, 0, 0">
+                        <Grid WidthRequest="10" HeightRequest="10" Margin="0, 0, 10, 0"
+                               BackgroundColor="#005bef" Padding="0"/>
+                        <Label Text="취소/변경시 규정에 따라 수수료가 부과됩니다." FontSize="13"/>
+                    </HorizontalStackLayout>
+                    <Label Text="수수료 규정 보기" Margin="20, 0, 0, 0" FontSize="11" FontAttributes="Bold"
+                           TextColor="#005bef"/>
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
+        <Grid Grid.Row="1">
+            <Button Text="확인" VerticalOptions="End" HorizontalOptions="FillAndExpand" CornerRadius="0"
+                BackgroundColor="#005bef" TextColor="White" FontAttributes="Bold" HeightRequest="55"/>
+            <Grid BackgroundColor="White" Opacity="0.6"/>
+        </Grid>
+       
+    </Grid>
+</ContentPage>
